@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import withProtectedRoute from '../router/ProtectedRouter'
+
 axios.defaults.withCredentials = true
 axios.defaults.xsrfCookieName = 'csrftoken'
 axios.defaults.xsrfHeaderName = 'x-csrftoken'
+
 function ListBookComponent() {
 	const [bookList, setBookList] = useState<{ name: string; author: string }[]>(
 		[]
@@ -53,4 +56,4 @@ function ListBookComponent() {
 		</div>
 	)
 }
-export default ListBookComponent
+export default withProtectedRoute(ListBookComponent)
