@@ -1,6 +1,8 @@
 from django.urls import path, include
 from .api import api_views
+
 urlpatterns = [
+    path('api/registry/', api_views.RegistryView.as_view(), name='registry'),
     path('api/listbooks/', api_views.ListBooksAPI.as_view(), name='listbooks'),
     path('api/login/', api_views.LoginView.as_view(), name='login'),
 
