@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Container, Box, Stack, Tab } from '@mui/material'
+import { Container, Box, Stack, Tab, AppBar } from '@mui/material'
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
@@ -18,15 +18,15 @@ const App = () => {
   };
 
   return (
-    <Container maxWidth="sm" >
+    <Container maxWidth="sm" className='mt-12'>
       <Box sx={{ width: '100%', typography: 'body1' }}>
         <TabContext value={value}>
-          <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-            <TabList onChange={handleChange} aria-label="lab API tabs example">
+          <AppBar position='static' color='transparent' sx={{ borderBottom: 1, borderColor: 'divider' }}>
+            <TabList indicatorColor="primary" onChange={handleChange} aria-label="lab API tabs example">
               <Tab label="Login" value="1" />
               <Tab label="Registry" value="2" />
             </TabList>
-          </Box>
+          </AppBar>
 
           <TabPanel value="1">
             <Stack direction={'column'}>
